@@ -1,0 +1,50 @@
+a {
+  text-decoration: none;
+}
+
+.cover {
+  margin: 30px auto;
+  border: 3px solid;
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  width: 700px;
+}
+
+.city,
+.date,
+.symbol,
+.temp,
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 300px;
+  margin-right: 10px;
+  height: 35px;
+}
+.city {
+  font: 40px solid;
+}
+.date,
+.temp,
+.forecast {
+  font-size: 20px;
+}
+.symbol {
+  font-size: 100px;
+}
+
+.cols {
+  border: 2px solid;
+  text-align: center;
+  border-radius: 5px;
+  font: 18px solid;
+  padding: 10px 0;
+}
+.forecast-symbol {
+  font-size: 28px;
+}
