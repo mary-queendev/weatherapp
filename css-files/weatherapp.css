@@ -1,7 +1,6 @@
-a {
-  text-decoration: none;
+.intro{
+  text-align: center;
 }
-
 .cover {
   margin: 30px auto;
   border: 3px solid;
