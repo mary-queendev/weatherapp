@@ -1,3 +1,12 @@
+li{
+  list-style-type: none;
+  text-align: center;
+  
+}
+ul{
+  margin: 0;
+padding: 0;
+}
 .intro{
   text-align: center;
 }
@@ -12,18 +21,23 @@
 
 .city,
 .date,
-.symbol,
-.temp,
-.top {
+.temp {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
-
+.top{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .input {
   width: 300px;
   margin-right: 10px;
   height: 35px;
+}
+.present{
+  margin: 0;
 }
 .city {
   font: 40px solid;
@@ -31,10 +45,14 @@
 .date,
 .temp,
 .forecast {
-  font-size: 20px;
+  font-size: 18px;
 }
 .symbol {
-  font-size: 100px;
+  display: flex;
+  justify-content: center;
+}
+#desc::first-letter{
+  text-transform: capitalize;
 }
 
 .cols {
@@ -46,4 +64,7 @@
 }
 .forecast-symbol {
   font-size: 28px;
+}
+.others{
+  margin-top: 12px;
 }
