@@ -42,10 +42,13 @@
             <image src="" id="weather-symbol"></image>
           </div>
           <div class="temp">
-            <ul>
-              <li id="desc"></li>
-              <li id="celcius"></li>
-            </ul>
+            <div>
+              <div id="desc"></div>
+              <span class="units">
+                <span href="#" id="celcius" class="active"></span>°C |
+                <a href="#" id="fahrenheit">°F</a></span
+              >
+            </div>
           </div>
         </div>
 
@@ -59,7 +62,9 @@
     </div>
     <div class="intro">
       This open source
-      <a href="https://github.com/mary-queendev/weatherapp/tree/master" target="_blank"
+      <a
+        href="https://github.com/mary-queendev/weatherapp/tree/master"
+        target="_blank"
         >weather app code </a
       >is written by Mary Ogbeide
     </div>

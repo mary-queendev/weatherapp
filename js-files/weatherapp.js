@@ -15,6 +15,9 @@ function date() {
   weatherDate.innerHTML = formatDate(currentTime);
   let hour= currentTime.getHours();
   let minute= currentTime.getMinutes();
+  if (minute< 10){
+    `0${minute}`
+  }
   if(hour < 12){
     time = `Last Updated: ${hour}:${minute} AM`
   } else{
@@ -29,7 +32,7 @@ function showLocation(town) {
   currentLocation.innerHTML = position;
   let temp = Math.round(town.data.main.temp);
   let celcius = document.querySelector("#celcius");
-  celcius.innerHTML = `${temp}&degC`;
+  celcius.innerHTML = `${temp}`;
   document.querySelector("#desc").innerHTML = town.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = town.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -61,7 +64,7 @@ function showWeather(response) {
   let celcius = document.querySelector("#celcius");
 
   weatherCity.innerHTML = response.data.name;
-  celcius.innerHTML = `${temp}&degC`;
+  celcius.innerHTML = `${temp}`;
   document.querySelector("#desc").innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -77,8 +80,6 @@ function showWeather(response) {
   return 
 }
 
-
-
 function changeCity(event) {
   event.preventDefault();
   date();
@@ -88,6 +89,17 @@ function changeCity(event) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let celcius = document.querySelector("#celcius");
+  let fahrenheitTemp = document.querySelector("#fahrenheit");
+  fahrenheit= Math.round(((celcius.innerHTML * 9) / 5) + 32);
+  fahrenheitTemp.innerHTML= `${fahrenheit}&degF`
+}
+
 navigator.geolocation.getCurrentPosition(presentLocation);
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("submit", changeCity);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheitTemp)
