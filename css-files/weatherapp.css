@@ -9,9 +9,7 @@ ul {
 a {
   text-decoration: none;
 }
-.intro {
-  text-align: center;
-}
+
 .cover {
   margin: 30px auto;
   border: 3px solid;
@@ -21,7 +19,9 @@ a {
   background-size: 100%;
   width: 700px;
 }
-
+.myLocation {
+  text-align: center;
+}
 .city,
 .date,
 .temp {
@@ -55,7 +55,7 @@ a {
   display: flex;
   justify-content: center;
 }
-#desc::first-letter {
+#desc:first-letter {
   text-transform: capitalize;
 }
 
@@ -71,4 +71,7 @@ a {
 }
 .others {
   margin-top: 12px;
+}
+.intro {
+  text-align: center;
 }

@@ -16,23 +16,22 @@
 
   <body>
     <div class="container cover">
-      <div class="row">
-        <form class="top" id="current-city">
-          <input
-            type="text"
-            class="input"
-            placeholder="Input City"
-            id="input-city"
-            autocomplete="off" />
-          <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-
-        <!-- <button type="submit" class="btn btn-info col-2 present">My Location</button> -->
+      <form class="top" id="current-city">
+        <input
+          type="text"
+          class="input"
+          placeholder="Input City"
+          id="input-city"
+          autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="myLocation">
+        <button class="btn btn-danger" id="my-location">My Location</button>
       </div>
-
+      
       <div class="row">
         <div class="col">
-          <div class="city" id="weather-city"></div>
+          <div class="city" id="weather-city">New York</div>
           <div class="date" id="weather-date"></div>
           <div class="date" id="weather-time"></div>
         </div>
@@ -57,6 +56,40 @@
             <li>Humidity: <span id="humidity"></span>%</li>
             <li>Windspeed: <span id="wind-speed"></span>km/H</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="row rows">
+        <div class="forecast">Weather Forecast;</div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Thur, 2/3/2023</span>
+          <div class="forecast-symbol">☁️</div>
+          <span class="forecast-date">20&deg;C</span>
+        </div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Fri, 3/3/2023</span>
+          <div class="forecast-symbol">🌥️</div>
+          <span class="forecast-date">25&deg;C</span>
+        </div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Sat, 4/3/2023</span>
+          <div class="forecast-symbol">🌧️</div>
+          <span class="forecast-date">18&deg;C</span>
+        </div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Sun, 5/3/2023</span>
+          <div class="forecast-symbol">☀️</div>
+          <span class="forecast-date">32&deg;C</span>
+        </div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Mon, 6/3/2023</span>
+          <div class="forecast-symbol">🌤️</div>
+          <span class="forecast-date">28&deg;C</span>
+        </div>
+        <div class="col-2 cols">
+          <span class="forecast-date">Tue, 7/3/2023</span>
+          <div class="forecast-symbol">🌥️</div>
+          <span class="forecast-date">20&deg;C</span>
         </div>
       </div>
     </div>
