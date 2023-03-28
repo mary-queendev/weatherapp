@@ -56,6 +56,33 @@ function getPresentLocation(position) {
   axios.get(apiUrl).then(showPresentLocation);
 }
 
+function showForecast(response) {
+  let forecast = document.querySelector("#weather-forecast");
+  let forecastData = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
+  days.forEach(function (day) {
+    forecastData =
+      forecastData +
+      `
+  <div class="col-2 cols">
+  <span class="forecast-date">${day}</span>
+  <div class="forecast-symbol">☁️</div>
+  <span class="forecast-date">20&deg;C</span>
+  </div>
+  
+  `;
+  });
+  forecastData = forecastData + `</div>`;
+  forecast.innerHTML = forecastData;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "47f17ab6c56f6ed58365f518e7be4fcf";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(showForecast);
+}
+
 let weatherCity = document.querySelector("#weather-city");
 let inputCity = document.querySelector("#input-city");
 
@@ -77,7 +104,9 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  return;
+
+  getForecast(response.data.coord);
+  // showForecast();
 }
 
 function changeCity(event) {
@@ -100,6 +129,7 @@ function showFahrenheitTemp(event) {
 function showHere() {
   navigator.geolocation.getCurrentPosition(getPresentLocation);
 }
+
 let myLocation = document.querySelector("#my-location");
 myLocation.addEventListener("click", showHere);
 
@@ -110,14 +140,12 @@ let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", showFahrenheitTemp);
 
 function loadPageWeather() {
-  
   date();
   let weatherCity = document.querySelector("#weather-city");
   weatherCity = weatherCity.innerHTML;
-  
+
   let apiKey = "d25a77b32eb1548451d57ab4cc8b0f2c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${weatherCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  console.log(weatherCity)
 }
-loadPageWeather()
+loadPageWeather();

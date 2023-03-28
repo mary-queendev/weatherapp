@@ -27,7 +27,6 @@ a {
 .temp {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 .top {
   display: flex;
