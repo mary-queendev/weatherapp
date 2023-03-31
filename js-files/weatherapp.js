@@ -56,21 +56,34 @@ function getPresentLocation(position) {
   axios.get(apiUrl).then(showPresentLocation);
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[day];
+}
 function showForecast(response) {
+  let forecastDays = response.data.daily;
   let forecast = document.querySelector("#weather-forecast");
   let forecastData = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
-  days.forEach(function (day) {
-    forecastData =
-      forecastData +
-      `
+
+  forecastDays.forEach(function (future, index) {
+    if (index < 6) {
+      forecastData =
+        forecastData +
+        `
   <div class="col-2 cols">
-  <span class="forecast-date">${day}</span>
-  <div class="forecast-symbol">☁️</div>
-  <span class="forecast-date">20&deg;C</span>
+  <span class="forecast-date">${formatForecastDay(future.dt)}</span>
+  <div class="forecast-symbol"><img src= "http://openweathermap.org/img/wn/${
+    future.weather[0].icon
+  }@2x.png"/></div>
+  <div class="forecast-date">max ${Math.round(future.temp.max)}&deg;C</div>
+  <div class="forecast-date">min ${Math.round(future.temp.min)}&deg;C</div>
   </div>
   
   `;
+    }
   });
   forecastData = forecastData + `</div>`;
   forecast.innerHTML = forecastData;
