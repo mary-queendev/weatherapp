@@ -11,7 +11,7 @@ a {
 }
 
 .cover {
-  margin: 30px auto;
+  margin: 20px auto;
   border: 3px solid;
   padding: 20px;
   border-radius: 8px;
@@ -42,7 +42,9 @@ a {
   margin: 0;
 }
 .city {
-  font: 40px solid;
+  font: 44px solid;
+  font-weight: bold;
+  color: #ec6e4c;
 }
 .date,
 .temp,
